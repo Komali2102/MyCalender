@@ -6,40 +6,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<!-- 🦋 Butterfly background ONLY here -->
 <body class="butterfly-bg">
 
-<!-- TAP OVERLAY -->
-<div id="startOverlay" onclick="unmuteMusic()">
-    <div class="start-box">Tap to begin ✨</div>
-</div>
-
 <div class="center-container glass">
+    <!-- ✨ CHANGE THIS TEXT -->
     <h1 class="main-text">A Year Written Just for You</h1>
 
     <input type="password" id="passcode" placeholder="Enter the secret">
     <button onclick="checkPasscode()">Unlock Memories</button>
 
     <p id="error-text"></p>
+
     <div id="transition-text" class="hidden">
         Are you ready for a memory recap? ✨
     </div>
 </div>
 
-<!-- 🔊 AUDIO -->
-<audio id="bgMusic" autoplay loop muted>
-    <source src="music/Intro.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+    <source src="../music/Intro.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function unmuteMusic() {
     const music = document.getElementById("bgMusic");
-    music.muted = false;
-    music.volume = 0.25;
-    document.getElementById("startOverlay").style.display = "none";
-}
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
 </script>
 
+
+
 <script src="script.js"></script>
+
 
 </body>
 </html>
