@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bgMusic");
     if (!music) return;
 
-    const CORRECT_PASSCODE = "1234";
+    const CORRECT_PASSCODE = "0210";
 
     let page = window.location.pathname.split("/").pop().replace(".html", "");
     if (page === "") page = "index";
