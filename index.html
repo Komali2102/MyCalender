@@ -28,22 +28,22 @@
 </audio>
 
 <script>
-    const music = document.getElementById("bgMusic");
+const music = document.getElementById("bgMusic");
+const overlay = document.getElementById("startOverlay");
 
-    function startMusic() {
-        music.volume = 0.25;
-        music.play().catch(err => {
-            console.log("Audio play blocked:", err);
-        });
-        document.removeEventListener("click", startMusic);
-    }
-
-    document.addEventListener("click", startMusic);
+overlay.addEventListener("click", () => {
+    music.volume = 0.25;
+    music.play();
+    overlay.style.display = "none";
+});
 </script>
 
-
-
 <script src="script.js"></script>
+<div id="startOverlay">
+    <div class="start-box">
+        <p>Tap to begin ✨</p>
+    </div>
+</div>
 
 
 </body>
