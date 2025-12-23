@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- 🦋 Butterfly background ONLY here -->
 <body class="butterfly-bg">
 
+<!-- 🔴 OVERLAY MUST COME FIRST -->
+<div id="startOverlay">
+    <div class="start-box">
+        Tap to begin ✨
+    </div>
+</div>
+
 <div class="center-container glass">
-    <!-- ✨ CHANGE THIS TEXT -->
     <h1 class="main-text">A Year Written Just for You</h1>
 
     <input type="password" id="passcode" placeholder="Enter the secret">
@@ -27,24 +32,19 @@
     <source src="music/Intro.mp3" type="audio/mpeg">
 </audio>
 
+<!-- ✅ SCRIPT MUST COME AFTER OVERLAY -->
 <script>
-const music = document.getElementById("bgMusic");
-const overlay = document.getElementById("startOverlay");
+    const music = document.getElementById("bgMusic");
+    const overlay = document.getElementById("startOverlay");
 
-overlay.addEventListener("click", () => {
-    music.volume = 0.25;
-    music.play();
-    overlay.style.display = "none";
-});
+    overlay.addEventListener("click", () => {
+        music.volume = 0.25;
+        music.play().catch(err => console.log(err));
+        overlay.style.display = "none";
+    });
 </script>
 
 <script src="script.js"></script>
-<div id="startOverlay">
-    <div class="start-box">
-        <p>Tap to begin ✨</p>
-    </div>
-</div>
-
 
 </body>
 </html>
