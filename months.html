@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Year of Memories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 🌙 Moon background ONLY for this page -->
+<body class="moon-bg">
+
+<div class="center-container glass">
+    <h1 class="main-text">A Year of Memories</h1>
+
+    <div class="months-grid">
+        <div class="month" onclick="go('january')">January</div>
+        <div class="month" onclick="go('february')">February</div>
+        <div class="month" onclick="go('march')">March</div>
+        <div class="month" onclick="go('april')">April</div>
+        <div class="month" onclick="go('may')">May</div>
+        <div class="month" onclick="go('june')">June</div>
+        <div class="month" onclick="go('july')">July</div>
+        <div class="month" onclick="go('august')">August</div>
+        <div class="month" onclick="go('september')">September</div>
+        <div class="month" onclick="go('october')">October</div>
+        <div class="month" onclick="go('november')">November</div>
+        <div class="month" onclick="go('december')">December</div>
+    </div>
+</div>
+
+<script>
+    function go(month) {
+        window.location.href = "months/" + month + ".html";
+    }
+</script>
+
+<!-- 🎵 MONTHS PAGE MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="music/Second.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

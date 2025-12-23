@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>January Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="january-bg">
+
+<div class="month-container">
+    <h1 class="month-title">January</h1>
+
+
+    <!-- Row 1 -->
+    <div class="string-row lights">
+        <div class="polaroid swing-left">
+            <span class="clip"></span>
+            <img src="January/pic1.png">
+        </div>
+
+        <div class="polaroid swing-right">
+            <span class="clip"></span>
+            <img src="January/pic2.jpg">
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="string-row second-row lights">
+        <div class="polaroid swing-right">
+            <span class="clip"></span>
+            <img src="January/pic3.jpg">
+        </div>
+
+        <div class="polaroid swing-left">
+            <span class="clip"></span>
+            <img src="January/pic4.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- 💌 MESSAGE BUTTON -->
+<div class="message-icon" onclick="toggleMessage()">💌</div>
+
+<!-- 🪟 SIDE MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        A Memory note 💖
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `It was the month when, in the middle of a nervous moment, a simple hug at the cafe wrapped me in warmth and safety.
+For those few seconds, the world felt quiet, my worries faded, and I felt truly secure. What seemed so small turned into something unforgettable—one of the most beautiful moments of my life.`;
+
+let typingIndex = 0;
+let typingInterval;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const message = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        // Reset typing
+        message.innerHTML = "";
+        typingIndex = 0;
+        clearInterval(typingInterval);
+
+        typingInterval = setInterval(() => {
+            if (typingIndex < messageText.length) {
+                message.innerHTML += messageText.charAt(typingIndex);
+                typingIndex++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 45); // typing speed
+    }
+}
+</script>
+
+    <div class="page-container">
+
+        <!-- your existing content (photos, strings, etc.) -->
+
+        <div class="page-end">
+            <a href="february.html" class="next-btn"> → </a>
+        </div>
+
+    </div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/january.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>August Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="august-bg">
+
+<div class="month-container">
+    <h1 class="month-title">August</h1>
+
+    <div class="glass-grid">
+
+        <div class="glass-frame">
+            <img src="august/pic1.jpg" alt="August memory 1">
+        </div>
+
+        <div class="glass-frame">
+            <img src="august/pic2.jpg" alt="August memory 2">
+        </div>
+
+        <!-- VIDEO FRAME -->
+        <div class="glass-frame">
+            <video autoplay loop muted playsinline>
+                <source src="august/pic3.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+        </div>
+
+        <div class="glass-frame">
+            <img src="august/pic4.jpg" alt="August memory 4">
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🌫️</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        August note 🌿
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `More than half of August passed beautifully,
+filled with a few video calls, snaps, and many little conversations.
+Each moment added its own warmth, making those days feel
+especially good and close to my heart.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT BUTTON -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="september.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/august.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

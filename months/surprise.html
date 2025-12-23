@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One Last Surprise ✨</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="surprise-bg">
+
+<div class="surprise-container glass">
+    <h1 class="surprise-title">One Last Thing… 💫</h1>
+
+    <p class="surprise-text">
+        It is a small surprise I don't know whether
+        you are going to like it or not,
+        but this deserves its own moment 🤍
+    </p>
+
+    <!-- 🎁 Surprise Button -->
+    <div class="surprise-btn" onclick="openSurprise()">🎁</div>
+</div>
+
+<!-- 🖼 FULL SCREEN OVERLAY -->
+<div class="surprise-overlay" id="surpriseOverlay">
+    <span class="close-btn" onclick="closeSurprise()">✖</span>
+
+    <img src="../surprise/pic1.jpg" alt="Surprise memory">
+
+    <p class="cute-text">
+        This my most favourite AI generated Pic... Which is my all time favourite Pic  ✨
+    </p>
+</div>
+
+<script>
+function openSurprise() {
+    document.getElementById("surpriseOverlay").classList.add("show");
+}
+
+function closeSurprise() {
+    document.getElementById("surpriseOverlay").classList.remove("show");
+}
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="../music/surprise.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 🦋 Butterfly background ONLY here -->
+<body class="butterfly-bg">
+
+<div class="center-container glass">
+    <!-- ✨ CHANGE THIS TEXT -->
+    <h1 class="main-text">A Year Written Just for You</h1>
+
+    <input type="password" id="passcode" placeholder="Enter the secret">
+    <button onclick="checkPasscode()">Unlock Memories</button>
+
+    <p id="error-text"></p>
+
+    <div id="transition-text" class="hidden">
+        Are you ready for a memory recap? ✨
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="music/Intro.mp3" type="audio/mpeg">
+</audio>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

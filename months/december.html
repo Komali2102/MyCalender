@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>December Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="december-bg">
+
+<div class="month-container">
+    <h1 class="month-title">December</h1>
+
+    <div class="wood-grid">
+
+        <div class="wood-frame">
+            <div class="wood-photo">
+                <img src="december/pic1.jpg">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🪵</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        December note 🤍
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `December was a calm and gentle month, with only a few moments.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<a href="surprise.html" class="next-btn"> → </a>
+
+<audio id="bgMusic" loop>
+    <source src="../music/December.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

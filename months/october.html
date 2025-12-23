@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>October Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="october-bg">
+
+<div class="month-container">
+    <h1 class="month-title">October</h1>
+
+    <div class="october-grid">
+
+        <div class="october-card">
+            <img src="october/pic1.jpg">
+            <span class="headphone">🎧</span>
+            <span class="sparkle s1">✦</span>
+            <span class="sparkle s2">✦</span>
+        </div>
+
+        <div class="october-card">
+            <img src="october/pic2.jpg">
+            <span class="headphone">🎧</span>
+            <span class="sparkle s1">✦</span>
+            <span class="sparkle s3">✦</span>
+        </div>
+
+        <div class="october-card">
+            <img src="october/pic3.jpg">
+            <span class="headphone">🎧</span>
+            <span class="sparkle s2">✦</span>
+            <span class="sparkle s3">✦</span>
+        </div>
+
+        <div class="october-card">
+            <img src="october/pic4.jpg">
+            <span class="headphone">🎧</span>
+            <span class="sparkle s1">✦</span>
+            <span class="sparkle s2">✦</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🎧</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        October note ✨
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `October holds a special feeling,
+because it’s your birthday month.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT BUTTON -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="november.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/october.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

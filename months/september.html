@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>September Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="september-bg">
+
+<div class="month-container">
+    <h1 class="month-title">September</h1>
+
+    <div class="torn-grid">
+
+        <div class="torn-paper">
+            <img src="september/pic1.jpg">
+        </div>
+
+        <div class="torn-paper">
+            <img src="september/pic2.jpg">
+        </div>
+
+        <div class="torn-paper">
+            <img src="september/pic3.jpg">
+        </div>
+
+        <div class="torn-paper">
+            <img src="september/pic4.jpg">
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🍂</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        September note 🍁
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `September wasn’t kind to me.
+It passed without warmth or moments to hold onto, leaving behind no memories
+I wish to revisit.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else clearInterval(timer);
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="october.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<!-- SVG MASK (ONCE) -->
+<svg width="0" height="0" viewBox="0 0 100 100">
+    <defs>
+        <clipPath id="tornMask" clipPathUnits="objectBoundingBox">
+            <path d="
+                M0.03,0.02
+                Q0.08,0.01 0.14,0.03
+                Q0.20,0.01 0.27,0.04
+                Q0.35,0.02 0.42,0.03
+                Q0.50,0.01 0.57,0.04
+                Q0.65,0.02 0.72,0.03
+                Q0.80,0.01 0.87,0.04
+                Q0.94,0.03 0.97,0.06
+                L0.98,0.94
+                Q0.95,0.98 0.88,0.96
+                Q0.80,0.99 0.72,0.96
+                Q0.65,0.99 0.57,0.96
+                Q0.50,0.99 0.42,0.96
+                Q0.35,0.99 0.27,0.96
+                Q0.20,0.99 0.14,0.96
+                Q0.06,0.98 0.03,0.94
+                Z"/>
+        </clipPath>
+    </defs>
+</svg>
+
+<audio id="bgMusic" loop>
+    <source src="../music/september.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

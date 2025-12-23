@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>November Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="november-bg">
+
+<div class="month-container">
+    <h1 class="month-title">November</h1>
+
+    <div class="november-grid">
+
+        <!-- Frame 1 -->
+        <div class="insta-post">
+            <div class="insta-photo">
+                <img src="november/pic1.jpg">
+            </div>
+            <div class="insta-actions">
+                <span>❤</span>
+                <span>💬</span>
+                <span>✈</span>
+                <span class="save">🔖</span>
+            </div>
+        </div>
+
+        <!-- Frame 2 -->
+        <div class="insta-post">
+            <div class="insta-photo">
+                <img src="november/pic2.jpg">
+            </div>
+            <div class="insta-actions">
+                <span>❤</span>
+                <span>💬</span>
+                <span>✈</span>
+                <span class="save">🔖</span>
+            </div>
+        </div>
+
+        <!-- Frame 3 -->
+        <div class="insta-post">
+            <div class="insta-photo">
+                <img src="november/pic3.jpg">
+            </div>
+            <div class="insta-actions">
+                <span>❤</span>
+                <span>💬</span>
+                <span>✈</span>
+                <span class="save">🔖</span>
+            </div>
+        </div>
+
+        <!-- Frame 4 -->
+        <div class="insta-post">
+            <div class="insta-photo">
+                <img src="november/pic4.jpg">
+            </div>
+            <div class="insta-actions">
+                <span>❤</span>
+                <span>💬</span>
+                <span>✈</span>
+                <span class="save">🔖</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🍃</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        November note 🍂
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `November was a quiet, normal month`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT BUTTON -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="december.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/november.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

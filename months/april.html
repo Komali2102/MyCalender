@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>April Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="april-bg">
+
+<div class="month-container">
+    <h1 class="month-title">April</h1>
+
+    <div class="april-grid">
+
+        <!-- Card 1 -->
+        <div class="postcard a1">
+            <img src="april/pic1.png" alt="April memory 1">
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="postcard a2">
+            <video autoplay loop muted playsinline>
+                <source src="april/pic2.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+        </div>
+
+        <!-- Card 3 : VIDEO -->
+        <div class="postcard a3">
+            <img src="april/pic3.png" alt="April memory 2">
+        </div>
+
+        <!-- Card 4 -->
+        <div class="postcard a4">
+            <img src="april/pic4.jpg" alt="April memory 4">
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🌸</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        April note 🌷
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `April is a month that words will never be enough to describe.
+It carried the most beautiful moments and the happiest time of the year,
+a chapter filled with memories beyond expression. Some of the best days of my life
+unfolded in this month, making it forever special to my heart.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT BUTTON -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="may.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/april.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

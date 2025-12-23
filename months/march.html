@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>March Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="march-bg">
+
+<div class="month-container">
+    <h1 class="month-title">March</h1>
+
+    <div class="memory-wall">
+
+        <!-- Column 1 -->
+        <div class="memory-column">
+            <div class="light-line"></div>
+
+            <div class="hanging-photo">
+                <img src="march/pic1.jpg" alt="March memory 1">
+            </div>
+
+            <div class="hanging-photo">
+                <img src="march/pic2.jpg" alt="March memory 2">
+            </div>
+        </div> <!-- ✅ Column 1 CLOSED -->
+
+        <!-- Column 2 -->
+        <div class="memory-column">
+            <div class="light-line"></div>
+
+            <div class="hanging-photo">
+                <img src="march/pic3.jpg" alt="March memory 3">
+            </div>
+
+            <div class="hanging-photo">
+                <img src="march/pic4.gif" alt="March memory 4">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🌸</div>
+
+<!-- 🪟 SIDE MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        March note 🌱
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `March is the month when everything felt a little more special.
+It began with the first snap from you, followed by that birthday wish that meant more than words.
+And then, the call on my birthday night—simple, yet so full of warmth—made the entire day truly unforgettable.`;
+
+let typingIndex = 0;
+let typingInterval;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const message = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        message.innerHTML = "";
+        typingIndex = 0;
+        clearInterval(typingInterval);
+
+        typingInterval = setInterval(() => {
+            if (typingIndex < messageText.length) {
+                message.innerHTML += messageText.charAt(typingIndex);
+                typingIndex++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 45);
+    }
+}
+</script>
+
+<!-- NEXT BUTTON -->
+<div class="page-container">
+    <div class="page-end">
+        <a href="april.html" class="next-btn">→</a>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/march.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+
+</body>
+</html>

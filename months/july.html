@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>July Memories</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="july-bg">
+
+<div class="month-container">
+    <h1 class="month-title">July</h1>
+
+    <div class="neon-grid">
+        <div class="neon-frame n1">
+            <img src="july/pic1.jpg">
+        </div>
+
+        <div class="neon-frame n2">
+            <img src="july/pic2.jpg">
+        </div>
+
+        <div class="neon-frame n3">
+            <img src="july/pic3.jpg">
+        </div>
+
+        <div class="neon-frame n4">
+            <img src="july/pic4.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- 💌 MESSAGE ICON -->
+<div class="message-icon" onclick="toggleMessage()">🔥</div>
+
+<!-- 🪟 MESSAGE BOX -->
+<div class="message-box" id="messageBox">
+    <div class="message-header">
+        July note 🔥
+        <span onclick="toggleMessage()">✖</span>
+    </div>
+    <div class="message-content" id="typedMessage"></div>
+</div>
+
+<script>
+const messageText = `July followed the same gentle rhythm—normal chats and a few simple.
+Each one brought an instant smile to my face,
+turning ordinary moments into small sparks of happiness.`;
+
+let i = 0, timer;
+
+function toggleMessage() {
+    const box = document.getElementById("messageBox");
+    const msg = document.getElementById("typedMessage");
+
+    box.classList.toggle("show");
+
+    if (box.classList.contains("show")) {
+        msg.innerHTML = "";
+        i = 0;
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+            if (i < messageText.length) {
+                msg.innerHTML += messageText.charAt(i++);
+            } else {
+                clearInterval(timer);
+            }
+        }, 40);
+    }
+}
+</script>
+
+    <div class="page-container">
+
+        <!-- your existing content (photos, strings, etc.) -->
+
+        <div class="page-end">
+            <a href="august.html" class="next-btn"> → </a>
+        </div>
+
+    </div>
+
+<audio id="bgMusic" loop>
+    <source src="../music/july.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
+
+</body>
+</html>
