@@ -167,7 +167,7 @@ button:hover {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-        url("../gifs/january.gif");
+        url("gifs/january.gif");
     background-size: cover;
     background-position: center;
 }
@@ -397,7 +397,7 @@ html, body {
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.55)
         ),
-        url("../gifs/february.gif");
+        url("gifs/february.gif");
 
     background-size: cover;
     background-position: center;
@@ -506,7 +506,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("../gifs/march.jpg");
+        url("gifs/march.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -631,7 +631,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
-        url("../gifs/april2.jpg");
+        url("gifs/april2.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -701,7 +701,7 @@ html, body {
             rgba(255, 235, 160, 0.25),
             rgba(255, 235, 160, 0.25)
         ),
-        url("../gifs/may.gif");
+        url("gifs/may.gif");
     background-size: cover;
     background-position: center;
 }
@@ -772,7 +772,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-        url("../gifs/june.gif");
+        url("gifs/june.gif");
     background-size: cover;
     background-position: center;
 }
@@ -851,7 +851,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("../gifs/july.gif");
+        url("gifs/july.gif");
     background-size: cover;
     background-position: center;
     font-family: 'Poppins', sans-serif;
@@ -975,7 +975,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("../gifs/august.gif");
+        url("gifs/august.gif");
     background-size: cover;
     background-position: center;
 }
@@ -1053,7 +1053,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url("../gifs/september.gif");
+        url("gifs/september.gif");
     background-size: cover;
     background-position: center;
 }
@@ -1115,7 +1115,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("../gifs/october.jpg");
+        url("gifs/october.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -1190,7 +1190,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("../gifs/november.gif");
+        url("gifs/november.gif");
     background-size: cover;
     background-position: center;
 }
@@ -1252,7 +1252,7 @@ html, body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("../gifs/december.gif");
+        url("gifs/december.gif");
     background-size: cover;
     background-position: center;
     font-family: "Georgia", serif;
@@ -1343,7 +1343,7 @@ html, body {
         rgba(0,0,0,0.7),
         rgba(0,0,0,0.7)
     ),
-    url("../gifs/december.gif");
+    url("gifs/december.gif");
     background-size: cover;
     background-position: center;
 }
