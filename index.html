@@ -23,19 +23,22 @@
     </div>
 </div>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" preload="auto" loop>
     <source src="music/Intro.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     const music = document.getElementById("bgMusic");
 
-    document.body.addEventListener("click", () => {
-        if (music.paused) {
-            music.volume = 0.25;
-            music.play();
-        }
-    }, { once: true });
+    function startMusic() {
+        music.volume = 0.25;
+        music.play().catch(err => {
+            console.log("Audio play blocked:", err);
+        });
+        document.removeEventListener("click", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
 </script>
 
 
