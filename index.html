@@ -8,11 +8,9 @@
 
 <body class="butterfly-bg">
 
-<!-- 🔊 TAP OVERLAY -->
-<div id="startOverlay" onclick="startMusic()">
-    <div class="start-box">
-        Tap to begin ✨
-    </div>
+<!-- TAP OVERLAY -->
+<div id="startOverlay" onclick="unmuteMusic()">
+    <div class="start-box">Tap to begin ✨</div>
 </div>
 
 <div class="center-container glass">
@@ -22,21 +20,21 @@
     <button onclick="checkPasscode()">Unlock Memories</button>
 
     <p id="error-text"></p>
-
     <div id="transition-text" class="hidden">
         Are you ready for a memory recap? ✨
     </div>
 </div>
 
-<audio id="bgMusic" loop>
+<!-- 🔊 AUDIO -->
+<audio id="bgMusic" autoplay loop muted>
     <source src="music/Intro.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function startMusic() {
+function unmuteMusic() {
     const music = document.getElementById("bgMusic");
+    music.muted = false;
     music.volume = 0.25;
-    music.play(); // ✅ browser allows this
     document.getElementById("startOverlay").style.display = "none";
 }
 </script>
