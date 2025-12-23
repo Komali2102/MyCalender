@@ -8,8 +8,8 @@
 
 <body class="butterfly-bg">
 
-<!-- 🔘 START OVERLAY -->
-<div id="startOverlay">
+<!-- TAP OVERLAY -->
+<div id="startOverlay" onclick="unmuteMusic()">
     <div class="start-box">Tap to begin ✨</div>
 </div>
 
@@ -26,21 +26,17 @@
 </div>
 
 <!-- 🔊 AUDIO -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop muted>
     <source src="music/Intro.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ✅ SCRIPT MUST BE LAST -->
 <script>
-document.getElementById("startOverlay").addEventListener("click", () => {
+function unmuteMusic() {
     const music = document.getElementById("bgMusic");
+    music.muted = false;
     music.volume = 0.25;
-    music.play().then(() => {
-        document.getElementById("startOverlay").style.display = "none";
-    }).catch(err => {
-        console.error("Audio blocked:", err);
-    });
-});
+    document.getElementById("startOverlay").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
