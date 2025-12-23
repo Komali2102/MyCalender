@@ -24,8 +24,20 @@
 </div>
 
 <audio id="bgMusic" loop>
-    <source src="../music/Intro.mp3" type="audio/mpeg">
+    <source src="../music/june.mpeg" type="audio/mpeg">
 </audio>
+
+<script>
+    const music = document.getElementById("bgMusic");
+
+    document.body.addEventListener("click", () => {
+        if (music.paused) {
+            music.volume = 0.25;
+            music.play();
+        }
+    }, { once: true });
+</script>
+
 
 
 <script src="script.js"></script>
