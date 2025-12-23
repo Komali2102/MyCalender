@@ -8,8 +8,8 @@
 
 <body class="butterfly-bg">
 
-<!-- 🔴 OVERLAY MUST COME FIRST -->
-<div id="startOverlay">
+<!-- 🔊 TAP OVERLAY -->
+<div id="startOverlay" onclick="startMusic()">
     <div class="start-box">
         Tap to begin ✨
     </div>
@@ -28,20 +28,17 @@
     </div>
 </div>
 
-<audio id="bgMusic" preload="auto" loop>
+<audio id="bgMusic" loop>
     <source src="music/Intro.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ✅ SCRIPT MUST COME AFTER OVERLAY -->
 <script>
+function startMusic() {
     const music = document.getElementById("bgMusic");
-    const overlay = document.getElementById("startOverlay");
-
-    overlay.addEventListener("click", () => {
-        music.volume = 0.25;
-        music.play().catch(err => console.log(err));
-        overlay.style.display = "none";
-    });
+    music.volume = 0.25;
+    music.play(); // ✅ browser allows this
+    document.getElementById("startOverlay").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
